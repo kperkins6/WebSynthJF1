@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sequencer Preset Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Preset</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sequencer_preset_users.each do |sequencer_preset_user| %>
+      <tr>
+        <td><%= sequencer_preset_user.preset_id %></td>
+        <td><%= sequencer_preset_user.user_id %></td>
+        <td><%= link_to 'Show', sequencer_preset_user %></td>
+        <td><%= link_to 'Edit', edit_sequencer_preset_user_path(sequencer_preset_user) %></td>
+        <td><%= link_to 'Destroy', sequencer_preset_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sequencer preset user', new_sequencer_preset_user_path %>

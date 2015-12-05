@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Preset:</strong>
+  <%= @synth_preset_user.preset_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @synth_preset_user.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_synth_preset_user_path(@synth_preset_user) %> |
+<%= link_to 'Back', synth_preset_users_path %>

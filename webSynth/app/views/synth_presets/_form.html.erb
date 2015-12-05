@@ -1,0 +1,29 @@
+<%= form_for(@synth_preset) do |f| %>
+  <% if @synth_preset.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@synth_preset.errors.count, "error") %> prohibited this synth_preset from being saved:</h2>
+
+      <ul>
+      <% @synth_preset.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :filename %><br>
+    <%= f.text_field :filename %>
+  </div>
+  <div class="field">
+    <%= f.label :private %><br>
+    <%= f.check_box :private %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Str:</strong>
+  <%= @sequencer_tag.str %>
+</p>
+
+<p>
+  <strong>Sequencer:</strong>
+  <%= @sequencer_tag.sequencer_id %>
+</p>
+
+<%= link_to 'Edit', edit_sequencer_tag_path(@sequencer_tag) %> |
+<%= link_to 'Back', sequencer_tags_path %>
