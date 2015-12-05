@@ -8,16 +8,16 @@ rails new webSynth
 cd webSynth
 
 #Add gems to Gemfile
-echo "################################" >> /webSynth/Gemfile
-echo "## Custom Gems Below ###########" >> /webSynth/Gemfile
-echo "################################" >> /webSynth/Gemfile
-echo "gem 'devise'" >> /webSynth/Gemfile
-echo "gem 'quiet_assets', group: :development" >> /webSynth/Gemfile
-echo "gem 'better_errors', group: :development" >> /webSynth/Gemfile
-echo "gem 'binding_of_caller', group: :development" >> /webSynth/Gemfile
-echo "################################" >> /webSynth/Gemfile
-echo "## Custom Gems End #############" >> /webSynth/Gemfile
-echo "################################" >> /webSynth/Gemfile
+echo "################################" >> Gemfile
+echo "## Custom Gems Below ###########" >> Gemfile
+echo "################################" >> Gemfile
+echo "gem 'devise'" >> Gemfile
+echo "gem 'quiet_assets', group: :development" >> Gemfile
+echo "gem 'better_errors', group: :development" >> Gemfile
+echo "gem 'binding_of_caller', group: :development" >> Gemfile
+echo "################################" >> Gemfile
+echo "## Custom Gems End #############" >> Gemfile
+echo "################################" >> Gemfile
 
 RAILS_ENV=production rake db:migrate
 
@@ -25,7 +25,7 @@ RAILS_ENV=production rake db:migrate
 rails g scaffold SynthPreset filename:string private:boolean user_id:integer
 rails g scaffold SequencerPreset filename:string private:boolean user_id:integer
 rails g scaffold SynthTag str:string synth_id:integer
-rails g scaffold SynthTag str:string sequencer_id:integer
+rails g scaffold SequencerTag str:string sequencer_id:integer
 rails g scaffold SynthPresetUser preset_id:integer user_id:integer
 rails g scaffold SequencerPresetUser preset_id:integer user_id:integer
 
