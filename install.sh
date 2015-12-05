@@ -92,3 +92,4 @@ sed -i '52i\<br>' app/views/layouts/application.html
 RAILS_ENV=production rake db:migrate
 rake db:migrate
 rake routes
+sudo apache2ctl restart
