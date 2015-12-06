@@ -66,6 +66,7 @@ sed -i '22i\    <div>' app/views/layouts/application.html.erb
 sed -i '24i\        <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>' app/views/layouts/application.html.erb
 sed -i '25i\      </ul>  ' app/views/layouts/application.html.erb
 sed -i '26i\    </div>' app/views/layouts/application.html.erb
+sed -i '27i\  </div>' app/views/layouts/application.html.erb
 sed -i '28i\</nav>' app/views/layouts/application.html.erb
 sed -i '29i\<% else %>' app/views/layouts/application.html.erb
 sed -i '30i\<nav class="navbar navbar-fixed-top navbar-inverse">' app/views/layouts/application.html.erb
