@@ -30,6 +30,9 @@ rails g scaffold SequencerTag str:string sequencer_id:integer
 rails g scaffold SynthPresetUser preset_id:integer user_id:integer
 rails g scaffold SequencerPresetUser preset_id:integer user_id:integer
 rails g controller Welcome index
+rails g controller Synth index
+rails g controller Sequencer index
+
 
 #Updates our routes file
 sed -i '10i\root "welcome#index"' config/routes.rb
@@ -42,7 +45,7 @@ rails generate ember:bootstrap
 
 #generate views for devise user
 rails generate devise:install
-rails generate devise user name:string
+rails generate devise user name:string user_id:integer
 rails generate devise:views
 
 #All rails views are embedded in the same application view. If you want
@@ -55,7 +58,7 @@ sed -i '11i\<% if user_signed_in? %>' app/views/layouts/application.html.erb
 sed -i '12i\<nav class="navbar navbar-fixed-top navbar-inverse">' app/views/layouts/application.html.erb
 sed -i '13i\  <div class="container-fluid">' app/views/layouts/application.html.erb
 sed -i '14i\    <div class="navbar-header">' app/views/layouts/application.html.erb
-sed -i '15i\      <%= link_to "#{current_user.name}", "#{root_path}", class: "navbar-brand" %>' app/views/layouts/application.html.erb
+sed -i '15i\      <%= link_to "Synth JF1", "#{root_path}", class: "navbar-brand" %>' app/views/layouts/application.html.erb
 sed -i '16i\    </div>' app/views/layouts/application.html.erb
 sed -i '17i\    <div>' app/views/layouts/application.html.erb
 sed -i '18i\      <ul class="nav navbar-nav">' app/views/layouts/application.html.erb
