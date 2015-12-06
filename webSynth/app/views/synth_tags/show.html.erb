@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Str:</strong>
+  <%= @synth_tag.str %>
+</p>
+
+<p>
+  <strong>Synth:</strong>
+  <%= @synth_tag.synth_id %>
+</p>
+
+<%= link_to 'Edit', edit_synth_tag_path(@synth_tag) %> |
+<%= link_to 'Back', synth_tags_path %>

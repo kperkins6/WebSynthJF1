@@ -1,0 +1,2 @@
+module SynthPresetsHelper
+end

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sequencer Presets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Filename</th>
+      <th>Private</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sequencer_presets.each do |sequencer_preset| %>
+      <tr>
+        <td><%= sequencer_preset.filename %></td>
+        <td><%= sequencer_preset.private %></td>
+        <td><%= sequencer_preset.user_id %></td>
+        <td><%= link_to 'Show', sequencer_preset %></td>
+        <td><%= link_to 'Edit', edit_sequencer_preset_path(sequencer_preset) %></td>
+        <td><%= link_to 'Destroy', sequencer_preset, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sequencer preset', new_sequencer_preset_path %>

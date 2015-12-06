@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sequencer Tags</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Str</th>
+      <th>Sequencer</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sequencer_tags.each do |sequencer_tag| %>
+      <tr>
+        <td><%= sequencer_tag.str %></td>
+        <td><%= sequencer_tag.sequencer_id %></td>
+        <td><%= link_to 'Show', sequencer_tag %></td>
+        <td><%= link_to 'Edit', edit_sequencer_tag_path(sequencer_tag) %></td>
+        <td><%= link_to 'Destroy', sequencer_tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sequencer tag', new_sequencer_tag_path %>
