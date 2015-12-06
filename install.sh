@@ -63,6 +63,7 @@ sed -i '19i\        <li><%= link_to "Home", "#{root_path}" %></li>' app/views/la
 sed -i '20i\      </ul>' app/views/layouts/application.html.erb
 sed -i '21i\    </div>' app/views/layouts/application.html.erb
 sed -i '22i\    <div>' app/views/layouts/application.html.erb
+sed -i '23i\      <ul class="nav navbar-nav navbar-right">' app/views/layouts/application.html.erb
 sed -i '24i\        <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>' app/views/layouts/application.html.erb
 sed -i '25i\      </ul>  ' app/views/layouts/application.html.erb
 sed -i '26i\    </div>' app/views/layouts/application.html.erb
@@ -78,6 +79,7 @@ sed -i '35i\    <div>' app/views/layouts/application.html.erb
 sed -i '36i\      <ul class="nav navbar-nav">' app/views/layouts/application.html.erb
 sed -i '37i\        <li><%= link_to "Home", "#{root_path}" %></li>' app/views/layouts/application.html.erb
 sed -i '38i\      </ul>' app/views/layouts/application.html.erb
+sed -i '39i\    </div>' app/views/layouts/application.html.erb
 sed -i '40i\    <div>' app/views/layouts/application.html.erb
 sed -i '41i\      <ul class="nav navbar-nav navbar-right">' app/views/layouts/application.html.erb
 sed -i '42i\        <li><%= link_to "Sign up", new_user_registration_path %></li>' app/views/layouts/application.html.erb
