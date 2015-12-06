@@ -1,0 +1,8 @@
+I"’(function() {
+  WebSynth.SynthPresetUser = DS.Model.extend({
+    presetId: DS.attr('number'),
+    userId: DS.attr('number')
+  });
+
+}).call(this);
+:ET

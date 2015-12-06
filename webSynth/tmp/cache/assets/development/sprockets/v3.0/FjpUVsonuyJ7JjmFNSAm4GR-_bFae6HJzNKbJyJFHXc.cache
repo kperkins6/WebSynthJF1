@@ -1,0 +1,7 @@
+I"‰(function() {
+  WebSynth.SequencerPresetUsersView = Ember.View.extend({
+    templateName: 'sequencer_preset_users'
+  });
+
+}).call(this);
+:ET

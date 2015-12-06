@@ -1,0 +1,5 @@
+I"e(function() {
+  WebSynth.ApplicationAdapter = DS.ActiveModelAdapter.extend({});
+
+}).call(this);
+:ET

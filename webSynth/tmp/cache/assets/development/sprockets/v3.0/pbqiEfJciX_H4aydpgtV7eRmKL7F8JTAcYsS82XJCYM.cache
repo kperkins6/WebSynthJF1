@@ -1,0 +1,5 @@
+I"I(function() {
+  WebSynth.Router.map(function() {});
+
+}).call(this);
+:ET

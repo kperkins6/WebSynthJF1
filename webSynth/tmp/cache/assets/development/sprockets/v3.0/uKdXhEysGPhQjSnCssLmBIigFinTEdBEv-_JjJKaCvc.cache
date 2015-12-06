@@ -1,0 +1,7 @@
+I"}(function() {
+  WebSynth.SynthPresetsView = Ember.View.extend({
+    templateName: 'synth_presets'
+  });
+
+}).call(this);
+:ET
