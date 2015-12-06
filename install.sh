@@ -76,7 +76,7 @@ sed -i '34i\    </div>' app/views/layouts/application.html.erb
 sed -i '35i\    <div>' app/views/layouts/application.html.erb
 sed -i '36i\      <ul class="nav navbar-nav">' app/views/layouts/application.html.erb
 sed -i '37i\        <li><%= link_to "Home", "#{root_path}" %></li>' app/views/layouts/application.html.erb
-sed -i '38i\      </ul>' app/views/layouts -i '39i\    </div>' app/views/layouts/application.html.erb
+sed -i '38i\      </ul>' app/views/layouts/application.html.erb
 sed -i '40i\    <div>' app/views/layouts/application.html.erb
 sed -i '41i\      <ul class="nav navbar-nav navbar-right">' app/views/layouts/application.html.erb
 sed -i '42i\        <li><%= link_to "Sign up", new_user_registration_path %></li>' app/views/layouts/application.html.erb
