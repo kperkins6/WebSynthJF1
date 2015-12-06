@@ -1,2 +1,0 @@
-module SynthHelper
-end

@@ -1,8 +1,0 @@
-I"è(function() {
-  WebSynth.SequencerTag = DS.Model.extend({
-    str: DS.attr('string'),
-    sequencerId: DS.attr('number')
-  });
-
-}).call(this);
-:ET

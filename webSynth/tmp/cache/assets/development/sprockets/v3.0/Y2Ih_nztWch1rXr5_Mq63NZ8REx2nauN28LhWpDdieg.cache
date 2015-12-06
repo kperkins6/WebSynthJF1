@@ -1,5 +1,0 @@
-I"S(function() {
-  window.WebSynth = Ember.Application.create();
-
-}).call(this);
-:ET

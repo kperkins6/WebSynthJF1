@@ -1,7 +1,0 @@
-I"w(function() {
-  WebSynth.SynthTagsView = Ember.View.extend({
-    templateName: 'synth_tags'
-  });
-
-}).call(this);
-:ET

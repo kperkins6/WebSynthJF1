@@ -1,7 +1,0 @@
-I"€(function() {
-  WebSynth.SequencerPresetsView = Ember.View.extend({
-    templateName: 'sequencer_presets'
-  });
-
-}).call(this);
-:ET

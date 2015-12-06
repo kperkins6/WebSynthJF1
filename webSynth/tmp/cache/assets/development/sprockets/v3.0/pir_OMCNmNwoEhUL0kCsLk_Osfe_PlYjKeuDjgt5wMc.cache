@@ -1,8 +1,0 @@
-I"‡(function() {
-  WebSynth.SynthTag = DS.Model.extend({
-    str: DS.attr('string'),
-    synthId: DS.attr('number')
-  });
-
-}).call(this);
-:ET

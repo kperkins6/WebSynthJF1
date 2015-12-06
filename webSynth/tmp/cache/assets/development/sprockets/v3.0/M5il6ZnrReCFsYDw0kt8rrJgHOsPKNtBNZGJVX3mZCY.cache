@@ -1,7 +1,0 @@
-I"}(function() {
-  WebSynth.SequencerTagView = Ember.View.extend({
-    templateName: 'sequencer_tag'
-  });
-
-}).call(this);
-:ET

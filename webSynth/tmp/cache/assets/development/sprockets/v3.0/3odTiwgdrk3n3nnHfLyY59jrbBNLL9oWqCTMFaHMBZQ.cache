@@ -1,7 +1,0 @@
-I"Å(function() {
-  WebSynth.SynthPresetUsersView = Ember.View.extend({
-    templateName: 'synth_preset_users'
-  });
-
-}).call(this);
-:ET
