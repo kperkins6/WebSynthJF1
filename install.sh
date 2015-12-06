@@ -165,6 +165,24 @@ cd webSynth
 #### End Devise File Updates ####
 #################################
 
+#################################
+#### Add Container Divs #########
+#################################
+  # Synth Index add div container
+  sed -i '1i\<div class="container">' app/views/synth/index.html.erb
+  sed -i "\$a</div>" app/views/synth/index.html.erb
+  
+  # Sequencer Index add div container
+  sed -i '1i\<div class="container">' app/views/sequencer/index.html.erb
+  sed -i "\$a</div>" app/views/sequencer/index.html.erb
+  
+  # Welcome Index add div container
+  sed -i '1i\<div class="container">' app/views/welcome/index.html.erb
+  sed -i "\$a</div>" app/views/welcome/index.html.erb
+#################################
+#### End Add Container Divs #####
+#################################
+
 RAILS_ENV=production rake db:migrate
 rake db:migrate
 rake routes
