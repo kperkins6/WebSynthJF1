@@ -32,14 +32,17 @@ rails g scaffold SequencerPresetUser preset_id:integer user_id:integer
 rails g controller Welcome index
 
 #Updates our routes file
-sed -i '10i\root "welcome#index"' config/routes.rb
+sed -i '10i\root "welcome#index"' ~/WebSynthJF1/webSynth/config/routes.rb
 
 #Install all gems
 bundle install
 
+#generate ember bootstrap
+rails generate ember:bootstrap
+
 #generate views for devise user
 rails generate devise:install
-rails generate devise user
+rails generate devise user name:string
 rails generate devise:views
 
 #All rails views are embedded in the same application view. If you want
@@ -47,47 +50,56 @@ rails generate devise:views
 # application, you can add it to the application view
 #sed -i '10i\<p class="notice"><%= notice %></p>' app/views/layouts/application.html.erb
 #sed -i '11i\<p class="alert"><%= alert %></p>' app/views/layouts/application.html.erb
-sed -i '10i\<div id="user_nav">' app/views/layouts/application.html
-sed -i '11i\<% if user_signed_in? %>' app/views/layouts/application.html
-sed -i '12i\<nav class="navbar navbar-fixed-top navbar-inverse">' app/views/layouts/application.html
-sed -i '13i\  <div class="container-fluid">' app/views/layouts/application.html
-sed -i '14i\    <div class="navbar-header">' app/views/layouts/application.html
-sed -i '15i\      <%= link_to "#{current_user.name}", "#{root_path}#PublicIMG", class: "navbar-brand" %>' app/views/layouts/application.html
-sed -i '16i\    </div>' app/views/layouts/application.html
-sed -i '17i\    <div>' app/views/layouts/application.html
-sed -i '18i\      <ul class="nav navbar-nav">' app/views/layouts/application.html
-sed -i '19i\        <li><%= link_to "Home", "#{root_path}#PublicIMG" %></li>' app/views/layouts/application.html
-sed -i '20i\      </ul>' app/views/layouts/application.html
-sed -i '21i\    </div>' app/views/layouts/application.html
-sed -i '22i\    <div>' app/views/layouts/application.html
-sed -i '24i\        <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>' app/views/layouts/application.html
-sed -i '25i\      </ul>  ' app/views/layouts/application.html
-sed -i '26i\    </div>' app/views/layouts/application.html
-sed -i '28i\</nav>' app/views/layouts/application.html
-sed -i '29i\<% else %>' app/views/layouts/application.html
-sed -i '30i\<nav class="navbar navbar-fixed-top navbar-inverse">' app/views/layouts/application.html
-sed -i '31i\  <div class="container-fluid">' app/views/layouts/application.html
-sed -i '32i\    <div class="navbar-header">' app/views/layouts/application.html
-sed -i '33i\      <%= link_to "Image Network", "#{root_path}#PublicIMG", class: "navbar-brand" %>' app/views/layouts/application.html
-sed -i '34i\    </div>' app/views/layouts/application.html
-sed -i '35i\    <div>' app/views/layouts/application.html
-sed -i '36i\      <ul class="nav navbar-nav">' app/views/layouts/application.html
-sed -i '37i\        <li><%= link_to "Home", "#{root_path}#PublicIMG" %></li>' app/views/layouts/application.html
-sed -i '38i\      </ul>' app/views/layouts/application.html
-sed -i '39i\    </div>' app/views/layouts/application.html
-sed -i '40i\    <div>' app/views/layouts/application.html
-sed -i '41i\      <ul class="nav navbar-nav navbar-right">' app/views/layouts/application.html
-sed -i '42i\        <li><%= link_to "Sign up", new_user_registration_path %></li>' app/views/layouts/application.html
-sed -i '43i\        <li><%= link_to "Sign in", new_user_session_path %>' app/views/layouts/application.html
-sed -i '44i\      </ul>  ' app/views/layouts/application.html
-sed -i '45i\    </div>' app/views/layouts/application.html
-sed -i '46i\   </div>' app/views/layouts/application.html
-sed -i '47i\</nav>' app/views/layouts/application.html
-sed -i '48i\<% end %>' app/views/layouts/application.html
-sed -i '49i\</div>' app/views/layouts/application.html
-sed -i '50i\<br>' app/views/layouts/application.html
-sed -i '51i\<br>' app/views/layouts/application.html
-sed -i '52i\<br>' app/views/layouts/application.html
+sed -i '10i\<div id="user_nav">' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '11i\<% if user_signed_in? %>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '12i\<nav class="navbar navbar-fixed-top navbar-inverse">' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '13i\  <div class="container-fluid">' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '14i\    <div class="navbar-header">' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '15i\      <%= link_to "#{current_user.name}", "#{root_path}", class: "navbar-brand" %>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '16i\    </div>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '17i\    <div>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '18i\      <ul class="nav navbar-nav">' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '19i\        <li><%= link_to "Home", "#{root_path}" %></li>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '20i\      </ul>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '21i\    </div>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '22i\    <div>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '24i\        <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '25i\      </ul>  ' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '26i\    </div>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '28i\</nav>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '29i\<% else %>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '30i\<nav class="navbar navbar-fixed-top navbar-inverse">' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '31i\  <div class="container-fluid">' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '32i\    <div class="navbar-header">' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '33i\      <%= link_to "Synth JF1", "#{root_path}", class: "navbar-brand" %>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '34i\    </div>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '35i\    <div>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '36i\      <ul class="nav navbar-nav">' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '37i\        <li><%= link_to "Home", "#{root_path}" %></li>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '38i\      </ul>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '39i\    </div>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '40i\    <div>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '41i\      <ul class="nav navbar-nav navbar-right">' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '42i\        <li><%= link_to "Sign up", new_user_registration_path %></li>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '43i\        <li><%= link_to "Sign in", new_user_session_path %>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '44i\      </ul>  ' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '45i\    </div>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '46i\   </div>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '47i\</nav>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '48i\<% end %>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '49i\</div>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '50i\<br>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '51i\<br>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+sed -i '52i\<br>' ~/WebSynthJF1/webSynth/app/views/layouts/application.html.erb
+
+#adds bootstrap header content
+sed -i '8i\<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">'
+sed -i '9i\<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>'
+sed -i '10i\<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>' 
+
+
+#changes password required length to 1 for testing purposes
+sed -i '145s/.*/config.password_length = 1..128/' ~/WebSynthJF1/webSynth/config/initializers/devise.rb
 
 RAILS_ENV=production rake db:migrate
 rake db:migrate
