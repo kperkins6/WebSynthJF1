@@ -7,6 +7,16 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
+  def completeToggle
+    @task = Task..find(params[:id])
+    if @task.finished == "t"
+      @task.finished = "f"
+    else
+      @task.finished = "t"
+    end 
+    @task.save
+  end
+
   # GET /tasks/1
   # GET /tasks/1.json
   def show
