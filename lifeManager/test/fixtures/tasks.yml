@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  str: MyString
+  finished: false
+  checklist_id: 1
+
+two:
+  str: MyString
+  finished: false
+  checklist_id: 1
