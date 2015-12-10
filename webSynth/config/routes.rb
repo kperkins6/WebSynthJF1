@@ -1,18 +1,21 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'sequencer/index'
+  get 'terms/index'
 
-  get 'synth/index'
+  get 'privacy/index'
 
   get 'welcome/index'
 
-  resources :sequencer_preset_users
+  get 'profile/index'
 root "welcome#index"
-  resources :synth_preset_users
-  resources :sequencer_tags
-  resources :synth_tags
-  resources :sequencer_presets
-  resources :synth_presets
+
+  resources :article_users
+  resources :tags
+  resources :articles
+  resources :events
+  resources :schedules
+  resources :tasks
+  resources :checklists
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
