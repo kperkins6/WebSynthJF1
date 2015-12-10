@@ -5,8 +5,8 @@
 # the synth or sequencer's show page
 # Due to making mistakes all the time, If fatal errors occur, this makes it easy
 # restart without pulling out too many hairs
-rails new webSynth
-cd webSynth
+rails new lifeManager
+cd lifeManager
 
 #################################
 #### Update Gem File ############
