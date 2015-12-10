@@ -19,8 +19,8 @@ cd webSynth
   echo "gem 'quiet_assets', group: :development" >> Gemfile
   echo "gem 'better_errors', group: :development" >> Gemfile
   echo "gem 'binding_of_caller', group: :development" >> Gemfile
-  echo "gem 'ember-rails'" >> Gemfile
-  echo "gem 'ember-source', '~> 1.9.0'" >> Gemfile
+  # echo "gem 'ember-rails'" >> Gemfile
+  # echo "gem 'ember-source', '~> 1.9.0'" >> Gemfile
   echo "################################" >> Gemfile
   echo "## Custom Gems End #############" >> Gemfile
   echo "################################" >> Gemfile
@@ -33,24 +33,39 @@ cd webSynth
 #################################
 #### Rails Scaffold Generation ##
 #################################
-  #Generate scaffolds for Image, Tag, and ImageUser
-  rails g scaffold SynthPreset filename:string private:boolean user_id:integer
-  rails g scaffold SequencerPreset filename:string private:boolean user_id:integer
-  rails g scaffold SynthTag str:string synth_id:integer
-  rails g scaffold SequencerTag str:string sequencer_id:integer
-  rails g scaffold SynthPresetUser preset_id:integer user_id:integer
-  rails g scaffold SequencerPresetUser preset_id:integer user_id:integer
+  #Generate scaffolds for Article, Profile, Schedule, Checklist
+  
+  # rails g scaffold Image filename:string private:boolean user_id:integer
+  # rails g scaffold Tag str:string image_id:integer
+  # rails g scaffold ImageUser image_id:integer user_id:integer
+
+  # generate scaffold for a working Checklist device
+  rails g scaffold Checklist name:string user_id:integer
+  rails g scaffold Task str:string checklist_id:integer
+  
+  # generate scaffold for a working schedule device
+  rails g scaffold Schedule name:string user_id:integer
+  rails g scaffold Event title:string date:datetime location:string eventType:string schedule_id:integer
+
+  # generate scaffold for a working article sharing device
+  rails g scaffold Article name:string url:string user_id:integer
+  rails g scaffold Tags str:string article_id:integer
+  rails g scaffold ArticleUser article_id:integer user_id:integer
+  
+  # generate scaffold for profile page
+  rails g controller Profile index
   rails g controller Welcome index
-  rails g controller Synth index
-  rails g controller Sequencer index
-  
-  #generate ember bootstrap
-  rails generate ember:bootstrap
-  
+  rails g controller Privacy index
+  rails g controller Terms index
+
   #generate views for devise user
   rails generate devise:install
-  rails generate devise user name:string user_id:integer
+  rails generate devise user name:string user_id:integer avatar_url:string #soundcloud_user_id:integer:index
   rails generate devise:views
+  
+  #generates news feed model
+  rails g model Story title:string body:text user:references
+  
 #################################
 #### End Scaffold Generation ####
 #################################
