@@ -52,6 +52,7 @@
     <button type="button" class="btn btn-default btn-md pull-right" data-toggle="modal" data-target="#newTask">Add Task</button>
     <hr>
     <div class="well" style="height: 300px; max-height: 300px;overflow: auto;">
+      <ul class="list-group checked-list-box">
       <% @checklists.each do |checklist| %>
         <% if current_user.id == checklist.user_id %>
           <% @tasks.each do |task| %>
@@ -61,6 +62,7 @@
           <% end %>
         <% end %>
       <% end %>
+      </ul>
     </div>
   </div>
   <div class="col-md-6">
