@@ -10,53 +10,8 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id="user_nav">
-<% if user_signed_in? %>
-<nav class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <%= link_to "Somehow I Manage", "#{root_path}", class: "navbar-brand" %>
-    </div>
-    <div>
-      <ul class="nav navbar-nav">
-        <li><%= link_to "Home", "#{root_path}" %></li>
-        <li><%= link_to "Articles", articles_path %></li>
-      </ul>
-    </div>
-    <div>
-      <ul class="nav navbar-nav navbar-right">
-        <li> <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
-        <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-      </ul>  
-    </div>
-  </div>
-</nav>
-<% else %>
-<nav class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <%= link_to "Somehow I Manage", "#{root_path}", class: "navbar-brand" %>
-    </div>
-    <div>
-      <ul class="nav navbar-nav">
-        <li><%= link_to "Home", "#{root_path}" %></li>
-      </ul>
-    </div>
-    <div>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Sign up", new_user_registration_path %></li>
-        <li><%= link_to "Sign in", new_user_session_path %>
-      </ul>  
-    </div>
-   </div>
-</nav>
-<% end %>
-</div>
-<br>
-<br>
-<br>
-
+<%= render "layouts/header" %> 
 <%= yield %>
-
+<%= render "layouts/footer" %>
 </body>
 </html>
