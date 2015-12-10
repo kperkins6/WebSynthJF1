@@ -35,6 +35,8 @@
         <div class="modal-body">
           <p>Your details</p>
           <p>str:string checklist_id:integer</p>
+          <% @task = Task.new %>
+          <%= render "tasks/form" %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
