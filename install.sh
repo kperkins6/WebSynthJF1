@@ -41,7 +41,7 @@ cd lifeManager
 
   # generate scaffold for a working Checklist device
   rails g scaffold Checklist name:string user_id:integer
-  rails g scaffold Task str:string checklist_id:integer
+  rails g scaffold Task str:string finished:boolean checklist_id:integer
   
   # generate scaffold for a working schedule device
   rails g scaffold Schedule name:string user_id:integer
