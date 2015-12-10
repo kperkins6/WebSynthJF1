@@ -1,5 +1,10 @@
 <div class="container">
 <% if (user_signed_in?) %>
+  <% @checklists.each do |checklist| %>
+    <% if current_user.id == checklist.user_id %>
+      <% @curChecklist = checklist %>
+    <% end %>
+  <% end %>
   <div class="jumbotron">
     <p>Hello, <%= current_user.name %></p>
   </div>
@@ -35,10 +40,37 @@
           <h4 class="modal-title">New Task</h4>
         </div>
         <div class="modal-body">
-          <p>Your details</p>
-          <p>str:string checklist_id:integer</p>
           <% @task = Task.new %>
-          <%= render "tasks/form" %>
+          <div class="container">
+<%= form_for(@task) do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Task Name" %><br>
+    <%= f.text_field :str %>
+  </div>
+  <div class="field">
+    <%= f.check_box :finished, :checked => true, :style => 'visibility: hidden' %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :checklist_id, value: @curChecklist.id, readonly: true %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
+      
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -52,7 +84,7 @@
     <button type="button" class="btn btn-default btn-md pull-right" data-toggle="modal" data-target="#newTask">Add Task</button>
     <hr>
     <div class="well" style="height: 300px; max-height: 300px;overflow: auto;">
-      <ul class="list-group checked-list-box">
+      <ul class="list-group checked-list-box" >
       <% @checklists.each do |checklist| %>
         <% if current_user.id == checklist.user_id %>
           <% @tasks.each do |task| %>
@@ -64,7 +96,7 @@
       <% end %>
       </ul>
     </div>
-  </div>
+  </div>  
   <div class="col-md-6">
     <span>Schedule</span>
     <button type="button" class="btn btn-default btn-md pull-right" data-toggle="modal" data-target="#newEvent">Add Event</button>
