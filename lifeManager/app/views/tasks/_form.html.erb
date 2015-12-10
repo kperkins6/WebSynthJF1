@@ -21,8 +21,7 @@
     <%= f.check_box :finished %>
   </div>
   <div class="field">
-    <%= f.label :checklist_id %><br>
-    <%= f.number_field :checklist_id %>
+    <%= f.hidden_field :checklist_id, readonly: true %>
   </div>
   <div class="actions">
     <%= f.submit %>
