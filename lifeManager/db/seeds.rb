@@ -67,12 +67,46 @@ articles = Article.create(
   ]
 )
 
+
+checklists = Checklist.create(
+  [
+    { name: "Song Goals", user_id: 1 },
+    { name: "Shopping", user_id: 2 },
+    { name: "Items To Buy", user_id: 3 },
+    { name: "Games To Play", user_id: 4 },
+  ]
+)
+
+schedules = Schedule.create(
+[
+  { name: "This Week", user_id: 1 },
+  { name: "Upcoming Shows", user_id: 2 },
+  { name: "Business Meetings", user_id: 3 },
+  { name: "Homework", user_id: 4 },
+]
+)
+
 #this code was sourced from Tyson Henry
 articles.each do |article|
- 
   # create tags
   for i in 0..rand(4)
     random_tag_string = gen_tag
     Tag.create(article_id: article.id, str: random_tag_string)
   end
 end
+
+checklists.each do |checklist|
+  # create events
+  for i in 0..rand(8)
+    random_tag_string = gen_tag
+    Task.create(str: random_tag_string, checklist_id: checklist.id)
+  end
+end
+
+schedules.each do |schedule|
+  # create events
+  for i in 0..rand(4)
+    random_tag_string = gen_tag
+    Event.create(title: random_tag_string, schedule_id: schedule.id, location: "home", eventType:"Work", date: DateTime.new(2009,9,1,17))
+  end
+end  
