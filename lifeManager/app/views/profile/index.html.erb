@@ -3,7 +3,6 @@
   <div class="jumbotron">
     <p>Hello, <%= current_user.name %></p>
   </div>
-<button type="button" class="btn btn-default btn-md " data-toggle="modal" data-target="#newEvent">Add Event</button>
 
   <!-- newEvent Modal -->
   <div class="modal fade" id="newEvent" role="dialog">
@@ -25,7 +24,6 @@
     </div>
   </div>
 
-  <button type="button" class="btn btn-default btn-md " data-toggle="modal" data-target="#newTask">Add Task</button>
 <!-- newTask Modal -->
   <div class="modal fade" id="newTask" role="dialog">
     <div class="modal-dialog">
@@ -45,6 +43,20 @@
 
     </div>
   </div>
+  <div class="col-md-6">
+    <span>Checklist</span>
+    <button type="button" class="btn btn-default btn-md pull-right" data-toggle="modal" data-target="#newTask">Add Task</button>
+    <hr>
+    <div class="well" style="height: 300px; max-height: 300px;overflow: auto;">
+    </div>
+  </div>
+  <div class="col-md-6">
+    <span>Schedule</span>
+    <button type="button" class="btn btn-default btn-md pull-right" data-toggle="modal" data-target="#newEvent">Add Event</button>
+    <hr>
+    <div class="well" style="height: 300px; max-height: 300px;overflow: auto;">
+  </div>
+
 <% else %>
   <div class="jumbotron">
     <p>You are not logged in</p>
