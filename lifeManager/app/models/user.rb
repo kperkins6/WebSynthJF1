@@ -10,4 +10,6 @@ class User < ActiveRecord::Base
   has_many :articles, dependent: :destroy
   belongs_to :checklists
   belongs_to :schedules
+
+  accepts_nested_attributes_for :checklists, :schedules
 end
