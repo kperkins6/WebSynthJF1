@@ -51,8 +51,6 @@ users = User.create(
 
 articles = Article.create(
   [
-  name:string url:string user_id:integer
-
     { name: "Mocha Tutorial", url: "https://semaphoreci.com/community/tutorials/getting-started-with-node-js-and-mocha", user_id: 1 },
     { name: "DJTT - Ableton Live", url: "http://djtechtools.com/2012/04/18/how-to-start-djing-in-ableton-part-1/", user_id: 1 },
     { name: "Using Ableton for DJing", url: "http://www.soundonsound.com/sos/jul10/articles/livetech_0710.htm", user_id: 3 },
@@ -66,27 +64,12 @@ articles = Article.create(
     { name: "DJTT - TB-303", url: "http://djtechtools.com/2015/12/02/history-tb-303-rolands-accidental-legend/", user_id: 1 },
     { name: "DJTT - Pioneer DJM", url: "http://djtechtools.com/2015/11/23/pioneer-djm-s9-review-new-hybrid-battle-mixer/", user_id: 2 },
     { name: "DJTT - Warmup DJs", url: "http://djtechtools.com/2015/11/20/warmup-djs-play-to-the-crowd/", user_id: 3 },
-
   ]
 )
 
 #this code was sourced from Tyson Henry
 articles.each do |article|
-
-  # create access objects for current article
-  if article.private
-    user_indexes = Array.new
-    size = 3 + rand(6)
-    for i in 0..size
-      while (user_indexes[i] = (rand 25) + 1) == article.user_id
-      end
-    end
-    user_indexes.uniq!
-    user_indexes.each do |user_id|
-      articleUser.create(user_id: user_id, article_id: article.id)
-    end
-  end
-  
+ 
   # create tags
   for i in 0..rand(4)
     random_tag_string = gen_tag
