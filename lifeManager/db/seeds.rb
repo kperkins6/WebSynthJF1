@@ -17,6 +17,30 @@ def gen_tag
   return str
 end
 
+def gen_finished
+  if ([0, 1].sample) == 1 
+    return "f"
+  else
+    return "t"
+  end
+end
+
+def gen_event_type
+  if ([0, 1].sample) == 1
+    return "work"
+  else
+    return "personal"
+  end
+end
+
+def gen_location
+  if ([0, 1].sample) == 1
+    return "club"
+  else
+    return "hawaii"
+  end
+end
+
 users = User.create(
   [
     { email: 'a@a.com', name: "Mrs. Aardvark", password: "a", password_confirmation: "a"},
@@ -99,7 +123,8 @@ checklists.each do |checklist|
   # create events
   for i in 0..rand(8)
     random_tag_string = gen_tag
-    Task.create(str: random_tag_string, checklist_id: checklist.id)
+    random_completed = gen_finished
+    Task.create(str: random_tag_string, finished: random_completed, checklist_id: checklist.id)
   end
 end
 
@@ -107,6 +132,8 @@ schedules.each do |schedule|
   # create events
   for i in 0..rand(4)
     random_tag_string = gen_tag
-    Event.create(title: random_tag_string, schedule_id: schedule.id, location: "home", eventType:"Work", date: DateTime.new(2009,9,1,17))
+    random_type = gen_event_type
+    random_loc = gen_location
+    Event.create(title: random_tag_string, schedule_id: schedule.id, location: random_loc, eventType: random_type, date: DateTime.new(2009,9,1,17))
   end
 end  
