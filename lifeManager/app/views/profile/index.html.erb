@@ -66,31 +66,34 @@
     <%= f.text_field :str %>
   </div>
   <div class="field">
-    <%= f.check_box :finished, :checked => true, :style => 'visibility: hidden' %>
+    <%= f.check_box :finished, :checked => false, :style => 'visibility: hidden' %>
   </div>
   <div class="field">
     <%= f.hidden_field :checklist_id, value: @current_checklist.id, readonly: true %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.button :submit => 'Create', :class => "btn btn-default btn-md"%>
   </div>
 <% end %>
 </div>
       
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default btn-md" data-dismiss="modal">Close</button>
         </div>
       </div>
 
     </div>
   </div>
+
+
   <div class="col-md-6">
     <span>Checklist</span>
-    <button type="button" class="btn btn-default btn-md pull-right" data-toggle="modal" data-target="#newTask">Add Task</button>
+    <%= button_to "Edit", tasks_path, :class => "btn btn-default btn-md pull-right", :method => :get  %>
+    <button type="button" class="btn btn-default btn-md pull-right" data-toggle="modal" data-target="#newTask">Add</button> 
     <hr>
  
-   <div class="well" style="height: 500px; max-height: 800px;overflow: auto;">
+  <div class="well" style="height: 500px; max-height: 800px;overflow: auto;">
   <div class="progress">
     <% @num_tasks = 0 %>
     <% @num_finished_tasks = 0 %>  
@@ -102,10 +105,10 @@
         <% end %>
       <% end %>
     <% end %>
-      <% @percent = (100*(@num_finished_tasks.to_f / @num_tasks)).to_i %>
-      <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="<%=@percent%>" aria-valuemin="0" aria-valuemax="100" style="width:<%=@percent%>%">
-        <%= @percent %>%
-      </div>
+    <% @percent = (100*(@num_finished_tasks.to_f / @num_tasks)).to_i %>
+    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="<%=@percent%>" aria-valuemin="0" aria-valuemax="100" style="width:<%=@percent%>%">
+      <%= @percent %>%
+    </div>
   </div>
       <ul class="list-group checked-list-box" >
       <% @tasks.each do |task| %>
@@ -116,8 +119,11 @@
       </ul>
     </div>
   </div>  
+
+
+
   <div class="col-md-6">
-    <span>Schedule</span>
+    <span>Upcoming Events</span>
     <button type="button" class="btn btn-default btn-md pull-right" data-toggle="modal" data-target="#newEvent">Add Event</button>
     <hr>
     <div class="well" style="height: 500px; max-height: 800px;overflow: auto;">
