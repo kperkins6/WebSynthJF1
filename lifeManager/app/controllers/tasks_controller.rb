@@ -5,16 +5,19 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.all
+    @checklists = Checklist.all
+    @users = User.all
   end
 
-  def completeToggle
+  def toggleComplete
     @task = Task..find(params[:id])
-    if @task.finished == "t"
-      @task.finished = "f"
+    if @task.finished == true
+      @task.finished = false
     else
-      @task.finished = "t"
+      @task.finished = true
     end 
     @task.save
+    render nothing: true
   end
 
   # GET /tasks/1
@@ -56,7 +59,7 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to root_url, notice: 'Task was successfully updated.' }
+        format.html { redirect_to tasks_path, notice: 'Task was successfully updated.' }
         format.json { render :show, status: :ok, location: @task }
       else
         format.html { render :edit }
