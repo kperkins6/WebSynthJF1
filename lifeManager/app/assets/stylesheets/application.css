@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+.state-icon {
+    left: -5px;
+}
+.list-group-item-primary {
+    color: white;
+    background-color: grey;
+}
