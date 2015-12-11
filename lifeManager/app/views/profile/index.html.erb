@@ -2,9 +2,15 @@
 <% if (user_signed_in?) %>
   <% @checklists.each do |checklist| %>
     <% if current_user.id == checklist.user_id %>
-      <% @curChecklist = checklist %>
+      <% @current_checklist = checklist %>
     <% end %>
   <% end %>
+  <% @schedules.each do |schedule| %>
+    <% if current_user.id == schedule.user_id %>
+      <% @current_schedule = schedule %>
+    <% end %>
+  <% end %>
+
   <div class="jumbotron">
     <p>Hello, <%= current_user.name %></p>
   </div>
@@ -63,7 +69,7 @@
     <%= f.check_box :finished, :checked => true, :style => 'visibility: hidden' %>
   </div>
   <div class="field">
-    <%= f.hidden_field :checklist_id, value: @curChecklist.id, readonly: true %>
+    <%= f.hidden_field :checklist_id, value: @current_checklist.id, readonly: true %>
   </div>
   <div class="actions">
     <%= f.submit %>
@@ -83,15 +89,27 @@
     <span>Checklist</span>
     <button type="button" class="btn btn-default btn-md pull-right" data-toggle="modal" data-target="#newTask">Add Task</button>
     <hr>
-    <div class="well" style="height: 300px; max-height: 300px;overflow: auto;">
+ 
+   <div class="well" style="height: 300px; max-height: 300px;overflow: auto;">
+  <div class="progress">
+    <% @num_tasks = 0 %>
+    <% @num_finished_tasks = 0 %>  
+    <% @tasks.each do |task| %>
+      <% if task.checklist_id == @current_checklist.id %>
+        <% @num_tasks += 1 %>
+        <% if task.finished == "t" %>
+          <% @num_finished_tasks += 1 %>
+        <% end %>
+      <% end %>
+    <% end %>
+      <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="<%= 100*(@num_finished_tasks.to_f / @num_tasks.to_f) %>" aria-valuemin="0" aria-valuemax="100" style="width:<%= 100*(@num_finished_tasks.to_f / @num_tasks.to_f) %>%">
+        <%= 100*(@num_finished_tasks / @num_tasks) %>%
+      </div>
+  </div>
       <ul class="list-group checked-list-box" >
-      <% @checklists.each do |checklist| %>
-        <% if current_user.id == checklist.user_id %>
-          <% @tasks.each do |task| %>
-            <% if task.checklist_id == checklist.id %>
-              <li class="list-group-item" <% if task.finished == "t" then %>data-checked="true"<% end %>><%= task.str %></li>
-            <% end %>
-          <% end %>
+      <% @tasks.each do |task| %>
+        <% if task.checklist_id == @current_checklist.id %>
+          <li class="list-group-item" <% if task.finished == "t" then %>data-checked="true"<% end %>><%= task.str %></li>
         <% end %>
       <% end %>
       </ul>
@@ -102,13 +120,9 @@
     <button type="button" class="btn btn-default btn-md pull-right" data-toggle="modal" data-target="#newEvent">Add Event</button>
     <hr>
     <div class="well" style="height: 300px; max-height: 300px;overflow: auto;">
-      <% @schedules.each do |schedule| %>
-        <% if current_user.id == schedule.user_id %>
-          <% @events.each do |event| %>
-            <% if event.schedule_id == schedule.id %>
-              <li class="list-group-item"><%= event.title %></li>
-            <% end %>
-          <% end %>
+      <% @events.each do |event| %>
+        <% if event.schedule_id == @current_schedule.id %>
+          <li class="list-group-item"><%= event.title %></li>
         <% end %>
       <% end %>
     </div>
