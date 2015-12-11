@@ -102,7 +102,7 @@
         <% end %>
       <% end %>
     <% end %>
-      <% @percent = 100*(@num_finished_tasks.to_f / @num_tasks) %>
+      <% @percent = (100*(@num_finished_tasks.to_f / @num_tasks)).to_i %>
       <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="<%=@percent%>" aria-valuemin="0" aria-valuemax="100" style="width:<%=@percent%>%">
         <%= @percent %>%
       </div>
