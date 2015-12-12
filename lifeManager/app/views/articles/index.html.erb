@@ -20,17 +20,29 @@
           <% @user = user %>
         <% end %>
       <% end %>
+<div class="modal fade" id="frame-<%= article.id.to_s %>" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><%= article.name %></h4>
+        </div>
+        <div class="modal-body">
+          <iframe security="restricted" sandbox="" src="<%= article.url %>" width = "500px" height = "500px"></iframe>
+        </div>
+      </div> 
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+
 
 
       <tr>
+        <td><%= link_to 'Check out this Article', "#", "data-toggle" => "modal", 'data-target' => '#frame-'+article.id.to_s %></td>
         <td><%= article.name %></td>
-
-        <td>
-  
-<a href="<%= article.url %>"><%= article.name %></a><div class="web-preview"><iframe security="restricted" sandbox="" src="<%= article.url %>" width = "500px" height = "500px"></iframe></div>
-
-</td>
-
         <td><%= @user.name %></td>
         <td><%= link_to 'Show', article %></td>
         <td><%= link_to 'Edit', edit_article_path(article) %></td>
