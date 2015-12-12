@@ -24,10 +24,36 @@
           <h4 class="modal-title">New Event</h4>
         </div>
         <div class="modal-body">
-          <p>Your details</p>
-          <p>title:string date:datetime location:string eventType:string schedule_id:integer</p>
+          <p>Event Details</p>
           <% @event = Event.new %>
-          <%= render "events/form" %>
+          <div class="container">
+<%= form_for(@event) do |f| %>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.datetime_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :eventType, :value => "work"%>
+    <%= f.radio_button :eventType, true%>
+    <%= f.label :eventType, :value => "personal"%>
+    <%= f.radio_button :eventType, true, :checked => true %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :schedule_id, :value => @current_schedule.id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -137,11 +163,13 @@
     <button type="button" class="btn btn-default btn-md pull-right" data-toggle="modal" data-target="#newEvent">Add Event</button>
     <hr>
     <div class="well" style="height: 500px; max-height: 800px;overflow: auto;">
+      <ul>
       <% @events.each do |event| %>
         <% if event.schedule_id == @current_schedule.id %>
-          <li class="list-group-item"><%= event.title %></li>
+          <li class="list-group-item"><h5><%= event.title %></h5></li>
         <% end %>
       <% end %>
+      </ul>
     </div>
   </div>
 
