@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   resources :tasks
   resources :checklists
 
-  patch 'tasks/:id/toggle' => 'tasks#completeToggle'
+  patch 'tasks/:id/toggle' => 'tasks#toggle'
+  resources :tasks do 
+    post :toggle
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

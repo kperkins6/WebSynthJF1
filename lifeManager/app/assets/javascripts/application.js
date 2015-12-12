@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require_tree.
 $(function () {
     $('.list-group.checked-list-box .list-group-item').each(function () {
         
@@ -39,11 +39,19 @@ $(function () {
             $checkbox.prop('checked', !$checkbox.is(':checked'));
             $checkbox.triggerHandler('change');
             updateDisplay();
+	    checkboxToggle();
         });
         $checkbox.on('change', function () {
             updateDisplay();
         });
           
+	function checkboxToggle(){
+	    $.ajax({
+      		url: '/tasks/'+this.value+'/toggleComplete',
+      		type: 'POST',
+      		data: {"finished": this.checked}
+    	    });
+	}
 
         // Actions
         function updateDisplay() {

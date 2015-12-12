@@ -9,8 +9,8 @@ class TasksController < ApplicationController
     @users = User.all
   end
 
-  def toggleComplete
-    @task = Task..find(params[:id])
+  def toggle
+    @task = Task.find(params[:id])
     if @task.finished == true
       @task.finished = false
     else

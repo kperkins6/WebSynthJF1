@@ -113,7 +113,12 @@
       <ul class="list-group checked-list-box" >
       <% @tasks.each do |task| %>
         <% if task.checklist_id == @current_checklist.id %>
-          <li class="list-group-item" <% if task.finished == true then %>data-checked="true"<% end %>><%= task.str %></li>
+          <li class="list-group-item actions" <% if task.finished == true then %>data-checked="true"<% end %>>
+            <%= task.str %>
+            <%= form_for(task, url: task_toggle_path(task), remote: true) do |f| %> 
+              <%= f.submit %>
+          <% end %>
+          </li>
         <% end %>
       <% end %>
       </ul>
