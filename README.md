@@ -1,8 +1,8 @@
-# WebSynthJF1
-A web synthesizer/sequencer built on top of RoR
+# Somehow I Manage
+A rails web app meant for sharing articles within a community as well as managing a list of tasks that need to be finished during the week.  
 
-##Goals
-* To-do List
-* Productivity Checklist
-* Statistics from various media sites
-* Links uploaded by the community shared in a relevant feed
+Rails: V 4.2.4
+Ruby: V 2.2.1
+Written in: Ruby, html, css, javascript, jquery
+Project Goals: Organize a musician's life and open a community sharing space for more personal skill development
+
