@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   attr_accessor :login
+  after_create :create_checklist
   validates :email, presence: true
   validates :name, presence: true
   validates :password, presence: true
@@ -13,4 +14,12 @@ class User < ActiveRecord::Base
   belongs_to :schedules
 
   accepts_nested_attributes_for :checklists, :schedules
+
+
+  private
+
+  def create_checklist
+      Checklist.create(user_id: self.id, name: "Checklist") 
+  end
 end
+
