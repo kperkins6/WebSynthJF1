@@ -10,13 +10,12 @@ class TasksController < ApplicationController
   end
 
   def toggle
-    @task = Task.find(params[:id])
+    @task = Task.find(params[:task_id])
     if @task.finished == true
       @task.finished = false
     else
       @task.finished = true
     end 
-    @task.save
     #render nothing: true
     respond_to do |format|
       if @task.save

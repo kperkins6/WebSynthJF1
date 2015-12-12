@@ -47,9 +47,8 @@ $(function () {
           
 	function checkboxToggle(){
 	    $.ajax({
-      		url: '/tasks/'+this.value+'/toggleComplete',
-      		type: 'POST',
-      		data: {"finished": this.checked}
+                //url: '/tasks/'/toggle',
+      		//type: 'POST',
     	    });
 	}
 
