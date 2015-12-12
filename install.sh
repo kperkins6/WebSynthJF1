@@ -47,6 +47,9 @@ cd lifeManager
   rails g scaffold Schedule name:string user_id:integer
   rails g scaffold Event title:string date:datetime location:string eventType:string schedule_id:integer
 
+  # generate scaffold for a favorite system
+  rails g scaffold Favorite user_id:integer article_id:integer 
+
   # generate scaffold for a working article sharing device
   rails g scaffold Article name:string url:string user_id:integer
   rails g scaffold Tags str:string article_id:integer
