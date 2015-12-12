@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree.
-$(function () {
+$(document).on('ready page:load', function () {
     $('.list-group.checked-list-box .list-group-item').each(function () {
         
         // Settings
