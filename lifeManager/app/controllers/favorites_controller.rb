@@ -14,7 +14,13 @@ class FavoritesController < ApplicationController
 
   # GET /favorites/new
   def new
+    @user = User.find(params[:user_id])
+    @article = Article.find(params[:article_id])
     @favorite = Favorite.new
+  end
+
+  def remote_new 
+
   end
 
   # GET /favorites/1/edit
