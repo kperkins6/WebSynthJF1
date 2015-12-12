@@ -1,8 +1,9 @@
+<% if user_signed_in? && current_user.id == 0 %>
 <p id="notice"><%= notice %></p>
-
+<div class="container"
 <h1>Listing Favorites</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>User</th>
@@ -14,11 +15,13 @@
   <tbody>
     <% @favorites.each do |favorite| %>
       <tr>
+        <% if favorite.user_id == current_user.id %>
         <td><%= favorite.user_id %></td>
         <td><%= favorite.article_id %></td>
         <td><%= link_to 'Show', favorite %></td>
         <td><%= link_to 'Edit', edit_favorite_path(favorite) %></td>
         <td><%= link_to 'Destroy', favorite, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +29,5 @@
 
 <br>
 
-<%= link_to 'New Favorite', new_favorite_path %>
+</div>
+<% end %>
