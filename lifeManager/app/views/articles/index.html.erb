@@ -24,7 +24,13 @@
 
       <tr>
         <td><%= article.name %></td>
-        <td><%= article.url %></td>
+
+        <td>
+  
+<a href="<%= article.url %>"><%= article.name %></a><div class="web-preview"><iframe security="restricted" sandbox="" src="<%= article.url %>" width = "500px" height = "500px"></iframe></div>
+
+</td>
+
         <td><%= @user.name %></td>
         <td><%= link_to 'Show', article %></td>
         <td><%= link_to 'Edit', edit_article_path(article) %></td>
