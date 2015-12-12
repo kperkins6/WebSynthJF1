@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   attr_accessor :login
   after_create :create_checklist
+  after_create :create_schedule
   validates :email, presence: true
   validates :name, presence: true
   validates :password, presence: true
@@ -19,7 +20,11 @@ class User < ActiveRecord::Base
   private
 
   def create_checklist
-      Checklist.create(user_id: self.id, name: "Checklist") 
+    Checklist.create(user_id: self.id, name: "Checklist") 
+  end
+  
+  def create_schedule
+    Schedule.create(user_id:self.id, name: "Schedule")
   end
 end
 
