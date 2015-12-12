@@ -75,12 +75,10 @@ users = User.create(
 
 articles = Article.create(
   [
-    { name: "Mocha Tutorial", url: "https://semaphoreci.com/community/tutorials/getting-started-with-node-js-and-mocha", user_id: 1 },
     { name: "DJTT - Ableton Live", url: "http://djtechtools.com/2012/04/18/how-to-start-djing-in-ableton-part-1/", user_id: 1 },
     { name: "Using Ableton for DJing", url: "http://www.soundonsound.com/sos/jul10/articles/livetech_0710.htm", user_id: 3 },
     { name: "Ableton", url: "https://www.ableton.com/", user_id: 1 },
     { name: "What is sound?", url: "http://www.soundproofingcompany.com/soundproofing101/what-is-sound/", user_id: 1 },
-    { name: "Using Sound", url: "https://helpx.adobe.com/audition/using/sound.html", user_id: 2 },
     { name: "DJTT - Gift Guide", url: "http://djtechtools.com/2015/12/09/holiday-gift-guide-for-djs-producers-2015-edition/", user_id: 3 },
     { name: "DJTT - Pan Pot", url: "http://djtechtools.com/2015/12/07/pan-pot-interview-recording-a-kalimba-for/", user_id: 1 },
     { name: "DJTT - Midi-mapped filter", url: "http://djtechtools.com/2015/12/03/use-midi-mapped-ableton-filter-mix-tracks/", user_id: 2 },
