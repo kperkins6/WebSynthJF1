@@ -52,6 +52,14 @@ gem 'devise'
 gem 'quiet_assets', group: :development
 gem 'better_errors', group: :development
 gem 'binding_of_caller', group: :development
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-instagram'
+gem 'twitter'
+gem 'instagram'
+gem 'omniauth-google-oauth2'
+gem 'google-api-client', require: 'google/api_client'
 ################################
 ## Custom Gems End #############
 ################################
