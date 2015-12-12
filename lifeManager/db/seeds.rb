@@ -100,12 +100,27 @@ checklists = Checklist.create(
 )
 
 schedules = Schedule.create(
-[
-  { name: "This Week", user_id: 1 },
-  { name: "Upcoming Shows", user_id: 2 },
-  { name: "Business Meetings", user_id: 3 },
-  { name: "Homework", user_id: 4 },
-]
+  [
+    { name: "This Week", user_id: 1 },
+    { name: "Upcoming Shows", user_id: 2 },
+    { name: "Business Meetings", user_id: 3 },
+    { name: "Homework", user_id: 4 },
+  ]
+)
+
+favorites = Favorite.create(
+  [
+    { user_id: 1, article_id: 2 },
+    { user_id: 1, article_id: 3 },
+    { user_id: 1, article_id: 5 },
+    { user_id: 1, article_id: 7 },
+    { user_id: 2, article_id: 2 },
+    { user_id: 2, article_id: 5 },
+    { user_id: 3, article_id: 3 },
+    { user_id: 3, article_id: 7 },
+    { user_id: 4, article_id: 2 },
+    { user_id: 4, article_id: 3 },
+  ]
 )
 
 #this code was sourced from Tyson Henry
@@ -135,3 +150,5 @@ schedules.each do |schedule|
     Event.create(title: random_tag_string, schedule_id: schedule.id, location: random_loc, eventType: random_type, date: DateTime.new(2009,9,1,17))
   end
 end  
+
+
