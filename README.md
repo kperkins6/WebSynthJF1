@@ -21,5 +21,8 @@ bash ../start.sh
 ![alt tag](/lifeManager/public/3.png)
 ![alt tag](/lifeManager/public/4.png)
 
+##Notes
+The purpose of this project is to learn more about templating rails.  Throughout the process, I created various scripts alongisde the main script (install.sh) in order to expediate different repeated-actions in ruby/rails. As I continue development, I am interested in making a rails/bootstrap auto-generator gem for quick and easy templating during the rails process
+
 # Developed by:
 Jay DiFuria
